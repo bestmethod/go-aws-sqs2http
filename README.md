@@ -8,3 +8,7 @@ cd go-aws-sqs2http
 go build sqs2http.go
 ```
 Edit the configuration text file and run the resulting binary file :) Done.
+
+
+The only files needed is the sqs.http binary created by running the go build and the configuration file.
+

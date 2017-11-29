@@ -1,0 +1,46 @@
+[logger]
+
+# should we log to console
+LogToConsole=true
+
+# should errors and criticals be redirected to stderr
+# if LogToConsole=true, it removes errors and criticals from stdout too
+ErrorToStderr=true
+
+# should we attempt to log everything to devlog
+LogToDevlog=false
+
+#############################
+
+[sqs]
+
+QueueName="testQueue"
+QueueRegion="eu-west-2"
+
+# if KeyId and SecretKey are both "" and "", then environment vars are used for login
+KeyId="EEFGE7876EGDE"
+SecretKey="EF78efGFE34fge87g878geF"
+
+# WaitTimeSeconds
+LongPollWaitSeconds=10
+
+# VisibilityTimeout
+HideMessageForSeconds=3600
+
+# QUIT, IGNORE, INIT (reinitialize queueurl and aws connection), default INIT
+OnReceiveError="QUIT"
+
+#############################
+
+[rest]
+
+# POST only for now. Non-test stuff
+Method="POST"
+Endpoint="http://127.0.0.1:5000/sqs/newMessage"
+ExpectStatusCode=200
+
+# GET|HEAD|NONE - initial connection test stuff
+TestMethod="GET"
+Test="http://127.0.0.1:5000/sqs/test"
+ExitOnFail=true
+ExpectTestStatusCode=200
